@@ -19,6 +19,10 @@ if not os.path.exists(posts_dir):
 # 레포지토리 로드
 repo = git.Repo(repo_path)
 
+# Git 사용자 설정 추가
+repo.git.config('user.name', 'github-actions[bot]')
+repo.git.config('user.email', 'github-actions[bot]@users.noreply.github.com')
+
 # 원격 저장소에서 최신 변경 사항을 가져옴
 origin = repo.remote(name='origin')
 origin.pull('master')
